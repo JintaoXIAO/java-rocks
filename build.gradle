@@ -4,3 +4,22 @@
  * This is a general purpose Gradle build.
  * Learn how to create Gradle builds at https://guides.gradle.org/creating-new-gradle-builds
  */
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'application'
+  apply plugin: 'idea'
+
+  repositories {
+    mavenCentral()
+  }
+
+
+  idea {
+    module {
+      downloadSources = true
+      downloadJavadoc = true
+    }
+  }
+}
+

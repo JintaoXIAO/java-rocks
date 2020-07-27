@@ -1,0 +1,5 @@
+
+
+dependencies {
+  implementation group: 'org.mapdb', name: 'mapdb', version: '3.0.8'
+}

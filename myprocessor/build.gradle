@@ -1,0 +1,17 @@
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'application'
+
+  java {
+    sourceCompatibility=JavaVersion.VERSION_11
+    targetCompatibility=JavaVersion.VERSION_11
+  }
+
+  repositories {
+    mavenCentral()
+  }
+
+  test {
+    useTestNG()
+  }
+}

@@ -1,5 +1,3 @@
 dependencies {
-  compile group: 'com.lmax', name: 'disruptor', version: '3.4.2'
+  implementation 'com.lmax:disruptor:3.4.2'
 }
-
-

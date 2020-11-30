@@ -23,6 +23,10 @@ subprojects {
     mavenCentral()
   }
 
+  run {
+    mainClass = findProperty('targetClass') ? getProperty('targetClass') : 'NO_CLASS'
+  }
+
   test {
     useTestNG()
   }

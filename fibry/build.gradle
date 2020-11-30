@@ -1,0 +1,3 @@
+dependencies {
+  compile group: 'eu.lucaventuri', name: 'fibry', version: '2.3.3'
+}

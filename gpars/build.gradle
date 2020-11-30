@@ -1,0 +1,12 @@
+plugins {
+  id 'groovy'
+}
+
+repositories {
+  maven {url='http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+dependencies {
+  implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '3.0.6'
+  implementation group: 'org.codehaus.gpars', name: 'gpars', version: '1.2.1'
+}

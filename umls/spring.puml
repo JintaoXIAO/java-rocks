@@ -1,0 +1,17 @@
+@startuml
+
+interface BeanFactory {
+getBean
+}
+interface ListableBeanFactory {
+getBeanNamesForType
+getBeansOfType
+}
+interface HierarchicalBeanFactory {
+getParentBeanFactory
+containsLocalBean
+}
+
+HierarchicalBeanFactory <|- BeanFactory
+
+@enduml

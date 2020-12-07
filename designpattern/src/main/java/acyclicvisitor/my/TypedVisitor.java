@@ -1,6 +1,6 @@
 package acyclicvisitor.my;
 
-public interface TypedVisitor<T> extends ConditionalVisitor {
+public interface TypedVisitor<T> extends ConditionalVisitor{
 
   Class<T> getType();
 

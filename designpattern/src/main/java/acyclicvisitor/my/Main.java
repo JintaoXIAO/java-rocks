@@ -30,6 +30,7 @@ public class Main {
         return Folder.class;
       }
     };
+
     var uniVisitor = new Visitor() {
 
       Set<Visitor> visitors = Set.of(fileVisitor, folderVisitor);
@@ -39,11 +40,20 @@ public class Main {
         visitors.forEach(v -> v.visit(o));
       }
     };
+
+    var visitorGroup = new VisitorGroup();
+    visitorGroup.registryVisitor(File.class, fileVisitor);
+    visitorGroup.registryVisitor(Folder.class, folderVisitor);
+
+
     var file = new File();
     var folder = new Folder();
 
     file.accept(uniVisitor);
     folder.accept(uniVisitor);
+
+    file.accept(visitorGroup);
+    folder.accept(visitorGroup);
 
   }
 }

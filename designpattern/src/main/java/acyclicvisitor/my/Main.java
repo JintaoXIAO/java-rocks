@@ -41,19 +41,7 @@ public class Main {
       }
     };
 
-    var visitorGroup = new VisitorGroup();
-    visitorGroup.registryVisitor(File.class, fileVisitor);
-    visitorGroup.registryVisitor(Folder.class, folderVisitor);
 
-
-    var file = new File();
-    var folder = new Folder();
-
-    file.accept(uniVisitor);
-    folder.accept(uniVisitor);
-
-    file.accept(visitorGroup);
-    folder.accept(visitorGroup);
 
   }
 }

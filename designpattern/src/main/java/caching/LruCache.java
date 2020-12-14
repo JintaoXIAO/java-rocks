@@ -1,35 +1,38 @@
 package caching;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class LruCache {
-  class Node {
-    String userId;
-    UserAccount account;
+public class LruCache<K, V> implements Cache<K, V>{
+  @Override
+  public Iterator<K> iterator() {
+    return null;
+  }
+
+  class Node<K, V> {
+    K key;
+    V val;
     Node previous, next;
 
-    public Node(String userId, UserAccount account) {
-      this.userId = userId;
-      this.account = account;
+    public Node(K key, V val) {
+      this.key = key;
+      this.val = val;
     }
   }
+
   int capacity;
-  Map<String, Node> cache = new HashMap<>();
-  Node head, tail;
+  Map<K, Node<K, V>> cache = new HashMap<>();
+  Node<K, V> head, tail;
 
   public LruCache(int capacity) {
     this.capacity = capacity;
   }
 
-  public UserAccount get(String userId) {
-    if (cache.containsKey(userId)) {
-      var node = cache.get(userId);
+  public V get(K key) {
+    if (cache.containsKey(key)) {
+      var node = cache.get(key);
       remove(node);
       setHead(node);
-      return node.account;
+      return node.val;
     }
     return null;
   }
@@ -59,29 +62,37 @@ public class LruCache {
     }
   }
 
-  public void update(String userId, UserAccount userAccount) {
-    if (cache.containsKey(userId)) {
-      var old = cache.get(userId);
-      old.account = userAccount;
+  public V update(K key, V val) {
+    if (cache.containsKey(key)) {
+      var old = cache.get(key);
+      V oldValue = old.val;
+      old.val = val;
       remove(old);
       setHead(old);
+      return oldValue;
     } else {
-      var newNode = new Node(userId, userAccount);
+      var newNode = new Node(key, val);
       if (cache.size() >= capacity) {
-        cache.remove(tail.userId);
+        cache.remove(tail.key);
         remove(head);
       }
       setHead(newNode);
-      cache.put(userId, newNode);
+      cache.put(key, newNode);
+      return null;
     }
   }
 
-  public boolean contains(String userId) {
-    return cache.containsKey(userId);
+  public boolean contains(K key) {
+    return cache.containsKey(key);
   }
 
-  public void invalidate(String userId) {
-    var toBeRemoved = cache.remove(userId);
+  @Override
+  public V remove(K key) {
+    return null;
+  }
+
+  public void invalidate(K key) {
+    var toBeRemoved = cache.remove(key);
     if (toBeRemoved != null) {
       remove(toBeRemoved);
     }
@@ -91,8 +102,8 @@ public class LruCache {
     return cache.size() >= capacity;
   }
 
-  public UserAccount getLruData() {
-    return tail.account;
+  public V getLruData() {
+    return tail.val;
   }
 
   public void clear() {
@@ -101,11 +112,11 @@ public class LruCache {
     cache.clear();
   }
 
-  public List<UserAccount> getCacheDataInListForm() {
-    var listOfCacheData = new ArrayList<UserAccount>();
+  public List<V> getCacheDataInListForm() {
+    var listOfCacheData = new ArrayList<V>();
     var temp = head;
     while (temp != null) {
-      listOfCacheData.add(temp.account);
+      listOfCacheData.add(temp.val);
       temp = temp.next;
     }
     return listOfCacheData;

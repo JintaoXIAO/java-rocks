@@ -1,19 +1,18 @@
 package caching;
 
+import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Optional;
 
-public class LfuCache<T> {
+public class LfuCache<K, V> implements Cache<K, V>{
 
   private int initialCapacity = 10;
-  private LinkedHashMap<Integer, CacheEntry<T>> cacheMap = new LinkedHashMap<>();
+  private LinkedHashMap<K, CacheEntry<V>> cacheMap = new LinkedHashMap<>();
 
   public LfuCache(int initialCapacity) {
     this.initialCapacity = initialCapacity;
   }
 
-  public int getLFUKey() {
+  public K getLFUKey() {
     return cacheMap.entrySet()
             .stream()
             .reduce((e1, e2) -> {
@@ -22,20 +21,20 @@ public class LfuCache<T> {
             }).orElseThrow().getKey();
   }
 
-  public void addCacheEntry(int key, T data) {
+  public void addCacheEntry(K key, V val) {
     if (!isFull()) {
-      CacheEntry<T> c = new CacheEntry<>();
+      CacheEntry<V> c = new CacheEntry<>();
       c.setFrequency(0);
-      c.setDate(data);
+      c.setDate(val);
       cacheMap.put(key, c);
     } else {
 
     }
   }
 
-  public T getCacheEntry(int key) {
+  public V getCacheEntry(K key) {
     if (cacheMap.containsKey(key)) {
-      CacheEntry<T> c = cacheMap.get(key);
+      CacheEntry<V> c = cacheMap.get(key);
       c.frequency ++;
       cacheMap.put(key, c);
       return c.date;
@@ -45,6 +44,31 @@ public class LfuCache<T> {
 
   public boolean isFull() {
     return (cacheMap.size() == initialCapacity);
+  }
+
+  @Override
+  public V get(K key) {
+    return null;
+  }
+
+  @Override
+  public V update(K key, V val) {
+    return null;
+  }
+
+  @Override
+  public boolean contains(K key) {
+    return false;
+  }
+
+  @Override
+  public V remove(K key) {
+    return null;
+  }
+
+  @Override
+  public Iterator<K> iterator() {
+    return null;
   }
 
   class CacheEntry<T> {

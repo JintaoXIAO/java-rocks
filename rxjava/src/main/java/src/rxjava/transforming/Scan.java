@@ -1,4 +1,4 @@
-package demo.rxjava.transforming;
+package rxjava.transforming;
 
 import io.reactivex.internal.operators.flowable.FlowableJust;
 

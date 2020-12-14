@@ -1,4 +1,4 @@
-package demo.rxjava.misc;
+package rxjava.misc;
 
 import io.reactivex.Flowable;
 import io.reactivex.Observable;

@@ -1,4 +1,4 @@
-package demo.rxjava.filtering;
+package rxjava.filtering;
 
 import io.reactivex.Observable;
 import io.reactivex.internal.operators.flowable.FlowableJust;

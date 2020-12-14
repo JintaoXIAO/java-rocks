@@ -1,4 +1,4 @@
-package demo.rxjava.creating;
+package rxjava.creating;
 
 import io.reactivex.Observable;
 

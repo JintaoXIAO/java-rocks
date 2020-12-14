@@ -1,4 +1,4 @@
-package demo.rxjava.misc;
+package rxjava.misc;
 
 import io.reactivex.subjects.PublishSubject;
 import io.reactivex.subjects.Subject;

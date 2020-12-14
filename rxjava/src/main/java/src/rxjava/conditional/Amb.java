@@ -1,4 +1,4 @@
-package demo.rxjava.conditional;
+package rxjava.conditional;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;

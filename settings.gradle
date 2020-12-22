@@ -24,4 +24,8 @@ include "gpars"
 include "jodatime"
 include "designpattern"
 include "vertx"
+<<<<<<< HEAD
 include "xstream"
+=======
+include "testng"
+>>>>>>> 2c144c104679818775b99a32a2eee3edb06e6749

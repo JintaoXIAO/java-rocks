@@ -28,10 +28,4 @@ public class MedianOfTwoSortedArrays {
       return getKth(nums1, i, nums2, j + k / 2, k - k / 2);
     }
   }
-
-  public static void main(String[] args) {
-    MedianOfTwoSortedArrays t = new MedianOfTwoSortedArrays();
-    double a = t.findMedianSortedArrays(new int[]{1,3,4}, new int[]{2});
-    System.out.println(a);
-  }
 }

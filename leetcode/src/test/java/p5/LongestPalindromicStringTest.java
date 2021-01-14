@@ -31,6 +31,8 @@ public class LongestPalindromicStringTest {
             new Object[]{"cbbd", Set.of("bb")},
             {"a", Set.of("a")},
             {"ac", Set.of("a", "c")},
+            {"bb", Set.of("bb")},
+            {"ccc", Set.of("ccc")},
     };
   }
 }

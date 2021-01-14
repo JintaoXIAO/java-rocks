@@ -52,8 +52,6 @@ public class LongestPalindromicString {
   }
 
   public String longestPalindrome1(String s){
-    if (s.length() == 1) return s;
-
     String ps = preProcess(s);
     int[] mt = new int[ps.length()];
     int mr = 0, c = 0;
@@ -62,7 +60,7 @@ public class LongestPalindromicString {
     for (int i = 1; i < ps.length(); i++) {
       if (i >= c + mr){
         int j = 0;
-        while (i - j > 0 && i + j < ps.length() && ps.charAt(i - j) == ps.charAt(i + j)) {
+        while (i - j >= 0 && i + j < ps.length() && ps.charAt(i - j) == ps.charAt(i + j)) {
           j++;
         }
         j--;
@@ -78,7 +76,7 @@ public class LongestPalindromicString {
       } else {
         mt[i] = Math.min(mt[2 * c - i], c + mr - i);
         int j = 0;
-        while (i - j > 0 && i + j < ps.length() && ps.charAt(i - j) == ps.charAt(i + j)) {
+        while (i - j >= 0 && i + j < ps.length() && ps.charAt(i - j) == ps.charAt(i + j)) {
           j++;
         }
         j--;

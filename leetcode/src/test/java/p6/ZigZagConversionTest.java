@@ -15,13 +15,6 @@ public class ZigZagConversionTest {
     Assert.assertEquals(act, exp);
   }
 
-  @Test(dataProvider = "default")
-  public void testConvert1(String s, int numRows, String exp) {
-    ZigZagConversion zzg = new ZigZagConversion();
-    String act = zzg.convert1(s, numRows);
-    Assert.assertEquals(act, exp);
-  }
-
   @DataProvider(name = "default")
   Object[][] dataset() {
     return new Object[][]{

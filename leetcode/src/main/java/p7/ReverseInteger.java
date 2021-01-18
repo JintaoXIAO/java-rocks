@@ -1,6 +1,16 @@
 package p7;
 
 public class ReverseInteger {
+
+  public int reverse1(int x){
+    long r = 0;
+    while (x != 0){
+      r = r * 10 + x % 10;
+      x = x / 10;
+    }
+    return (int) r == r ? (int) r : 0;
+  }
+
   public int reverse(int x) {
     int r = 0;
     while (x != 0) {

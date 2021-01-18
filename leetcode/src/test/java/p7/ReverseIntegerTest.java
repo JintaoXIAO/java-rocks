@@ -15,6 +15,11 @@ public class ReverseIntegerTest {
     Assert.assertEquals(ri.reverse(x), exp);
   }
 
+  @Test(dataProvider = "default")
+  public void testReverse1(int x, int exp) {
+    Assert.assertEquals(ri.reverse1(x), exp);
+  }
+
   @DataProvider(name = "default")
   Object[][] dataset() {
     return new Object[][]{

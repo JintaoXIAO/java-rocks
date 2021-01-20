@@ -4,15 +4,6 @@ dependencies {
   testImplementation 'org.jmockit:jmockit:1.49'
 }
 
-repositories {
-  maven {
-    url 'http://maven.aliyun.com/nexus/content/groups/public/'
-  }
-  maven {
-    url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
-  }
-}
-
 test {
   useTestNG()
   // for jmockit

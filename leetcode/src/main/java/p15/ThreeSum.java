@@ -2,10 +2,10 @@ package p15;
 
 import java.util.*;
 
-public class $3Sum {
+public class ThreeSum {
 
   public static void main(String[] args) {
-    $3Sum s = new $3Sum();
+    ThreeSum s = new ThreeSum();
     List<List<Integer>> r = s.threeSum(new int[]{-1, -1, 0, 1, 2, -1, -4});
     System.out.println(r);
   }

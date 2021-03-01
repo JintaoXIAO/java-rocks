@@ -1,5 +1,0 @@
-
-dependencies {
-    implementation group: 'org.directwebremoting', name: 'dwr', version: '2.0.11-RELEASE'
-    runtimeOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
-}

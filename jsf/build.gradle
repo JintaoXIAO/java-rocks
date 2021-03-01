@@ -1,4 +1,0 @@
-
-dependencies {
-    implementation group: 'com.sun.faces', name: 'jsf-api', version: '2.2.20'
-}
